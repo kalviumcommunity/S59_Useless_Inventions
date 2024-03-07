@@ -2,7 +2,9 @@ const express= require('express');
 const mongoose=require('mongoose')
 require("dotenv").config()
 const app=express();
-const port=8082;
+const port=8088;
+const routes= require('./Routes.js')
+
 
 app.get("/",(req,res)=>{
     res.send("Hello")
@@ -18,6 +20,9 @@ app.get('/home',(req,res)=>{
     .catch((err)=>{
         console.error(err);
     })
-    const status=mongoose.connected? "Connected":"Not-Connected"
+    const status=mongoose.connect ? "Connected":"Not-Connected"
     res.send(`connection status: ${status}`)
 })
+
+app.use(express.json())
+app.use('/api',routes)
