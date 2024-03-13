@@ -1,40 +1,34 @@
 import React from 'react'
-import { useState } from 'react'
+
 
 function Front() {
-    const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-  }
   return (
     <div>
     <nav>
     <div className="nav-container">
       <div className="logo">
-        <img src='../src/assets/Screenshot (146).png'alt='Logo' className='logos'/>
+        <img src='../src/assets/logo2.png'alt='Logo' className='logos'/>
       </div>
-      <form onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-        <button type="submit">Search</button>
-      </form>
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">Latest</a></li>
-        <li><a href="/contact">Profile</a></li>
-        
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/profile">Profile</a></li>
       </ul>
     </div>
   </nav>
+
+  <div className='container-product'>
+    <div className='product-description'>
+      <div><h2>Here and now</h2></div>
+      <div className='product-name'>Pet Rock</div>
+      <div><h4>Pet Rock is a collectible toy made in 1975 by advertising executive Gary Dahl. They were rocks packaged in custom cardboard boxes complete with ventilation holes and straw bedding imitating a pet carrier</h4></div>
+    </div>
+      <div>
+         <img src='../src/assets/pet rock.jpg' alt='pet-rock' className='product-img'/>
+      </div>
+  </div>
     </div>
   )
 }
