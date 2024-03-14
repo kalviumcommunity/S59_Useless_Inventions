@@ -5,11 +5,10 @@ function Front() {
 
   return (
     <div>
-    <nav>
+
     <div className="nav-container">
-      <div className="logo">
+
         <img src='../src/assets/logo2.png'alt='Logo' className='logos'/>
-      </div>
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">Latest</a></li>
@@ -17,7 +16,7 @@ function Front() {
         <li><a href="/profile">Profile</a></li>
       </ul>
     </div>
-  </nav>
+
 
   <div className='container-product'>
     <div className='product-description'>

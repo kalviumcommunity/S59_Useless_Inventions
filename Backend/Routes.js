@@ -36,17 +36,18 @@ router.get('/:id' , async (req, res)=>{
 router.post
 ('/add-Invention', async (req , res)=>{
     const newInvention = new Invention({
-        InventionID : req.body.InventionID,
+        Invention:req.body.Invention,
         Founder : req.body.Founder,
         Founded : req.body.Founded,
         Description : req.body.Description,
+        Image:req.body.Image
     })
     try{
         const saveInvention = await newInvention.save()
         res.json(saveInvention)
     }
     catch (err){
-        res.json({error : "Error occured 3"})
+        res.json({error : err})
     }
 })
 

@@ -1,9 +1,0 @@
-{
-  "version": "1",
-  "name": "Chirag",
-  "type": "collection",
-  "ignore": [
-    "node_modules",
-    ".git"
-  ]
-}

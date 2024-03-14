@@ -3,27 +3,27 @@ const mongoose = require('mongoose');
 const data = new mongoose.Schema({
     Invention : {
         type : String,
-        required : true
+        // required : true
     },
     Founder : {
         type : String,
-        required : true
+        // required : true
     },
     Founded : {
         type : String,
-        required : true
+        // required : true
     },
     Description : {
         type : String,
-        required : true
+        // required : true
     },
     Image:{
         type: String,
-        required: true
+        // required: true
     }
     
 })
 
-const dataSet = mongoose.model('dataSet',data);
+const dataSet = mongoose.model('Useless',data);
 
 module.exports = dataSet
