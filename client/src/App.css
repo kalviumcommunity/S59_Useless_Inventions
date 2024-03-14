@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
-#root {
-  max-width: 1280px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech&display=swap');
+
 
 
 .logo:hover {
@@ -15,14 +14,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 7vw;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #000000;
-  color: #fff;
+  height: 6vw;
+  /* padding: 10px 20px; */
+  background-color: rgba(255, 255, 255, 0.678);
+  color: #000000;
   z-index: 1000; 
+  
 }
 
 
@@ -30,6 +27,7 @@
   list-style-type: none;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .nav-links li {
@@ -38,7 +36,7 @@
 
 .nav-links li a {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
   font-size: 2vw;
 }
 
@@ -52,12 +50,16 @@ button:hover {
   width: 6vw;
   height: 6vw;
   border-radius: 2vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-*{
+body{
   font-family: "Share Tech", sans-serif;
 }
 body{
   background-color: black;
+  overflow-x: hidden;
 }
 .product-name{
   color: #007bff;
@@ -76,7 +78,7 @@ body{
 .container-product{
   box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.349);
   background-color: #3535353d;
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -112,4 +114,63 @@ body{
   to {
       opacity: 1;
   }
+}
+.Invention-img{
+  height: 15vw;
+  width: 25vw;
+}
+@keyframes moveText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+
+.moving-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: moveText 10s linear infinite;
+  color: rgb(250, 71, 47);
+  font-weight: 700;
+}
+.pic{
+  height: 10vw;
+  width: 10vw;
+  border-radius: 1vw;
+}
+
+.types-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.type {
+  margin: 100px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.type:hover {
+  transform: scale(1.1);
+}
+.data{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.dataa{
+  height: 33vw;
+  width: 27vw;
+  /* background-color: rgba(197, 197, 197, 0.5); */
+  margin: 1vw;
+  color: #ffffff;
 }
