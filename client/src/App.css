@@ -1,176 +1,260 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Angkor&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech&display=swap');
-
-
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-.nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6vw;
-  /* padding: 10px 20px; */
-  background-color: rgba(255, 255, 255, 0.678);
-  color: #000000;
-  z-index: 1000; 
-  
-}
-
-
-.nav-links {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.nav-links li {
-  margin-right: 15px;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #000000;
-  font-size: 2vw;
-}
-
-.nav-links li a:hover {
-  color: #ffd700;
-}
-button:hover {
-  background-color: #0056b3;
-}
-.logos{
-  width: 6vw;
-  height: 6vw;
-  border-radius: 2vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-body{
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech&display=swap');
+body {
   font-family: "Share Tech", sans-serif;
-}
-body{
   background-color: black;
   overflow-x: hidden;
 }
-.product-name{
-  color: #007bff;
-  font-size: 5vw;
-  font-weight: 600;
-}
-.product-name:hover{
-  color: #ffd700;
-}
-.product-img{
-  border-left: 1px solid white;
-  height: 20vw;
-  width: 25vw;
-  margin: 5vw;
-}
-.container-product{
-  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.349);
-  background-color: #3535353d;
-  /* margin-left: 10vw; */
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
-}
-.product-description{
-  margin: 5vw;
-}
-@keyframes floating2{
-  0% {
-      transform: translateY(0);
-  }
-  50%{
-      transform: translateY(15px);
-  }
-  100%{
-      transform: translateY(0);
-  }
-}
-
-.product-img {
-  animation: floating2 2s ease-in-out infinite;
-}
-.product-description h4{
-  opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1s;
-}
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
 .Invention-img{
-  height: 15vw;
-  width: 25vw;
+  width: 20vw;
+  height: 20vw;
 }
-@keyframes moveText {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100%); }
-}
-
-
-.moving-text {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.5vw;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: moveText 10s linear infinite;
-  color: rgb(250, 71, 47);
-  font-weight: 700;
-}
-.pic{
-  height: 10vw;
-  width: 10vw;
-  border-radius: 1vw;
-}
-
-.types-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-evenly;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.type {
-  margin: 100px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.type:hover {
-  transform: scale(1.1);
-}
-.data{
+.data-main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
   justify-content: space-evenly;
 }
-.dataa{
-  height: 33vw;
+
+.dataa {
+  height: 43vw;
   width: 27vw;
-  /* background-color: rgba(197, 197, 197, 0.5); */
   margin: 1vw;
   color: #ffffff;
+}
+.logo{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  width: 100vw;
+  font-size: 1.5vw;
+  top: 0;
+  position: fixed;
+}
+.logo ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+.nav{
+  width: 50vw;
+}
+.logo ul li{
+  width: max-content;
+  color: black;
+  border: 1px solid white;
+  height: 2vw;
+  background-color: #84bfff;
+  padding: .3vw;
+}
+.logo ul li:hover{
+  transform: scale(1.2);
+}
+.main-line{
+  font-family: Angkor;
+  font-size: 4vw;
+  width: 50vw;
+  /* height: 20vw; */
+  color: #84bfff;
+  padding-left: 2vw;
+  text-shadow: 2px 2px rgb(199, 255, 246);
+}
+.main-line:hover{
+  color: rgb(255, 255, 87);
+}
+.logo-img{
+  width: 6vw;
+  height: 5vw;
+  animation: scale 2s linear infinite;
+}
+.center{
+  text-align: center;
+}
+.line2{
+  padding: 3vw;
+  font-family: "Rajdhani", sans-serif;
+  width: 40vw;
+  font-size: 1.4vw;
+  font-weight: 400;
+}
+.button{
+  background-color: #90c6ff;
+  border: 1px solid rgb(255, 255, 255);
+  color: black;
+  margin: 2vw;
+}
+@keyframes scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+
+.side{
+  width: 20vw;
+  height: 30vw;
+  background-color: white;
+  border-radius: 1vw;
+  margin-left: 5vw;
+  animation: scale 2s linear infinite;
+}
+.side-pic{
+  width: 20vw;
+  height: 25vw;
+  background-color: rgb(41, 41, 41);
+  border-radius: 1vw;
+}
+.main{
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+}
+.button1{
+
+  border: 1px solid #84bfff;
+  color: #84bfff;
+  margin: 2vw;
+}
+.info{
+  display: flex;
+  color: black;
+  justify-content: space-between;
+}
+.name{
+  color: black;
+  font-weight: 700;
+  font-size: 1.5vw;
+  text-align: center;
+}
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  color: black;
+}
+.side-left{
+  border-right: 1px solid white;
+}
+.registration {
+  background-color: #E9E4D0;
+  color: #714E38;
+  box-shadow: 5px 5px 10px 0px black;
+  border-radius: 2vw;
+  height: 40vw;
+}
+
+.head {
+  color: #714E38;
+  font-size: 4vw;
+  font-weight: 600;
+  border-bottom: 2px solid rgb(224, 78, 78);
+}
+
+.labels {
+  color: #714E38;
+  font-size: 2vw;
+  font-weight: 700;
+  margin: 0.5vw;
+}
+
+.enter1,
+.enter2,
+.enter3,
+.enter4,
+.enter5 {
+  background-color: #382110;
+  color: aliceblue;
+  border: 2px solid whitesmoke;
+  border-radius: 1vw;
+  width: 15vw;
+  height: 2vw;
+  font-family: 'Noto Sans', sans-serif;
+  margin-left: 12vw; 
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.submitButton {
+  background-color: #714E38;
+  font-size: 2vw;
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 18vw;
+}
+
+.submitButton:hover {
+  background-color: #ad7857;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.popup2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 3vw;
+  transform: translate(-50%, -50%);
+  background-color: #E9E4D0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #714E38;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .registration {
+    height: 100vw; 
+  }
+
+  .head {
+    font-size: 6vw; 
+  }
+
+  .labels {
+    font-size: 4vw;
+  }
+
+  .enter1,
+  .enter2,
+  .enter3,
+  .enter4,
+  .enter5 {
+    width: 80%; 
+    height: 4vw; 
+    margin-left: 0; 
+  }
+
+  .submitButton {
+    width: 80%; 
+    margin-left: 10%; 
+  }
+
+  .popup {
+    font-size: 5vw; 
+  }
 }
