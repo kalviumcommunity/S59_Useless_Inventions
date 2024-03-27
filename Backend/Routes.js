@@ -2,6 +2,23 @@ const express = require('express')
 const router = express.Router();
 const Invention = require('./schema.js')
 const mongoose=require('mongoose')
+const Joi = require('joi'); 
+
+const schema = Joi.object({
+    Invention: Joi.string().required(),
+    Founder: Joi.string().required(),
+    Founded: Joi.string().required(),
+    Description: Joi.string().required(), 
+  });
+
+  const validation = (input) => {
+    const { error } = schema.validate(input);
+    if (error) {
+        return false;
+    } else {
+        return true;
+    }
+};
 
 const connectDB = async()=>{
     try{
@@ -34,7 +51,11 @@ router.get('/:id' , async (req, res)=>{
 })
 
 router.post
-('/add-Invention', async (req , res)=>{
+('/add-Invention', async (req , res)=>{ 
+
+    if(!validation(req.body)){
+        return res.status(400).json({"Error":"Invalid data input"})
+    }
     const newInvention = new Invention({
         Invention:req.body.Invention,
         Founder : req.body.Founder,

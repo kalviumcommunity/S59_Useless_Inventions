@@ -1,0 +1,21 @@
+meta {
+  name: check
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8088/api/add-Invention
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "_id": "65f22ea03001adf5863616c7",
+    "Invention": "Google Glass (tech)",
+    "Founder": "Google",
+    "Founded": "2013",
+    "Description": "Wearable smart glasses with a built-in camera and display, failed due to privacy concerns and limited functionality."
+  }
+}
