@@ -24,6 +24,7 @@ body {
   width: 27vw;
   margin: 1vw;
   color: #ffffff;
+  display: flex;
 }
 .logo{
   display: flex;
