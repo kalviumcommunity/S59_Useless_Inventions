@@ -259,3 +259,80 @@ body {
     font-size: 5vw; 
   }
 }
+.error-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999;
+}
+.pop{
+  color: white;
+  background-color: #ff3535;
+  height: 20vw;
+  width: 40vw;
+}
+.signup-container {
+  width: 100%;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error-popup {
+  margin-top: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pop {
+  padding: 20px;
+}
+
+.pop h2 {
+  margin-bottom: 10px;
+}
+
+.pop button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.pop button:hover {
+  background-color: #0056b3;
+}
+.label{
+  color: #84bfff;
+  font-size: 2vw;
+}

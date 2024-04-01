@@ -3,6 +3,7 @@ const router = express.Router();
 const Invention = require('./schema.js')
 const mongoose=require('mongoose')
 const Joi = require('joi'); 
+const User = require('./UserSchema.jsx')
 
 const schema = Joi.object({
     Invention: Joi.string().required(),
@@ -11,8 +12,24 @@ const schema = Joi.object({
     Description: Joi.string().required(), 
   });
 
+  const validateRegister = Joi.object({
+    FirstName: Joi.string().required(),
+    LastName: Joi.string(),
+    Email: Joi.string().required(),
+    password: Joi.string().required(),
+})
+
   const validation = (input) => {
     const { error } = schema.validate(input);
+    if (error) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+const Registervalidation = (input) => {
+    const { error } = validateRegister.validate(input);
     if (error) {
         return false;
     } else {
@@ -105,6 +122,58 @@ router.delete('/:id' , async (req , res)=>{
         res.json("Invention deleted");
     }catch (err){
         res.status(500).send('Error:')
+    }
+})
+
+router.post('/register', async (req, res) => {
+    // const findUser = await User.findOne({ Email: req.body.Email })
+    // if (findUser) {
+    //     return res.status(409).json({ Error: "User already exists" })
+    // }
+    // if (!Registervalidation(req.body, validateRegister)) {
+    //     return res.status(400).json({ "Error": "Data validation failed" })
+    // }
+    const newUser = new User({
+        FirstName: req.body.FirstName,
+        LastName: req.body.LastName,
+        Email: req.body.Email,
+        password: req.body.password,
+    })
+    try {
+        const savedUser = await newUser.save()
+        console.log(savedUser)
+        res.status(201).json({ savedUser })
+    }
+    catch (err) {
+        
+        console.log(err)
+        res.status(500).json({ error: "An error occurred" })
+    }
+})
+
+router.post('/login', async (req, res) => {
+    const findUser = await User.findOne({ Email: req.body.Email })
+    console.log(req.body)
+    
+    if (findUser) {
+        return res.json({ Message: "Login Successful!", Name: findUser.Email })
+    }
+    else {
+        return res.status(405).json({ Error: "Login Failed!" })
+    }
+})
+
+router.post('/logout', async (req, res) => {
+    return res.json({ Message: "Logout successfull!" })
+})
+
+router.get('/', async (req, res) => {
+    try {
+        const Inventions = await Invention.find()
+        res.json(Inventions)
+    }
+    catch (err) {
+        res.status(500).json({ error: "An error occurred" })
     }
 })
 
