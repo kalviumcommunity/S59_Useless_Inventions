@@ -15,6 +15,10 @@ function SignIn() {
           });
 
           const Feedback = await response.json();
+          const { accessToken , Email} = Feedback
+          console.log(Feedback)
+          document.cookie = `accessToken=${accessToken}; path=/;`;
+          document.cookie = `user=${Email}`;
           if (response.ok) {
               console.log("Login Successful");
               setResp(Feedback);
@@ -23,6 +27,7 @@ function SignIn() {
           } else {
               console.log("Login Failed");
           }
+          return Feedback;
       } catch (err) {
           console.log(err);
       }
@@ -40,9 +45,11 @@ function SignIn() {
 
           if (response.ok) {
               console.log("Logout Successful");
+              document.cookie = `accessToken=; path=/;`
+              document.cookie = `user=`;
               setResp(Feedback);
               setLoggedIn(false);
-              document.cookie = `user`;
+              
           } else {
               console.log("Logout failed");
           }

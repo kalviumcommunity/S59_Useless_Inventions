@@ -4,6 +4,9 @@ const Invention = require('./schema.js')
 const mongoose=require('mongoose')
 const Joi = require('joi'); 
 const User = require('./UserSchema.jsx')
+const jwt = require('jsonwebtoken')
+const SECRET = process.env.SECRET
+require('dotenv').config()
 
 const schema = Joi.object({
     Invention: Joi.string().required(),
@@ -126,13 +129,13 @@ router.delete('/:id' , async (req , res)=>{
 })
 
 router.post('/register', async (req, res) => {
-    // const findUser = await User.findOne({ Email: req.body.Email })
-    // if (findUser) {
-    //     return res.status(409).json({ Error: "User already exists" })
-    // }
-    // if (!Registervalidation(req.body, validateRegister)) {
-    //     return res.status(400).json({ "Error": "Data validation failed" })
-    // }
+    const CheckUser = await User.findOne({ Email: req.body.Email })
+    if (CheckUser) {
+        return res.status(409).json({ Error: "User already exists" })
+    }
+    if (!Registervalidation(req.body, validateRegister)) {
+        return res.status(400).json({ "Error": "Data validation failed" })
+    }
     const newUser = new User({
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
@@ -152,11 +155,12 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    const findUser = await User.findOne({ Email: req.body.Email })
+    const CheckUser = await User.findOne({ Email: req.body.Email })
     console.log(req.body)
     
-    if (findUser) {
-        return res.json({ Message: "Login Successful!", Name: findUser.Email })
+    if (CheckUser) {
+        const token = jwt.sign({ userId: CheckUser.Email }, SECRET,{expiresIn:'2h'}); 
+        return res.json({ Message: "Login Successful!", Name: CheckUser.Email ,accessToken: token})
     }
     else {
         return res.status(405).json({ Error: "Login Failed!" })
