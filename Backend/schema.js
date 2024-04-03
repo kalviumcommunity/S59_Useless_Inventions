@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const data = new mongoose.Schema({
+    User : {
+        type : String,
+        // required : true
+    },
     Invention : {
         type : String,
         // required : true
