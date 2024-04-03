@@ -8,7 +8,7 @@ function Inventions() {
   const [selectedInvention, setSelectedInvention] = useState(null);
 
   useEffect(() => {
-    fetch('https://s59-useless-inventions-1.onrender.com/api')
+    fetch('http://localhost:8088/api')
       .then(response => response.json())
       .then(data => {
         const inventionsWithDescriptions = data.map(invention => ({
@@ -40,7 +40,7 @@ function Inventions() {
 
   const handleUpdate = async updatedInvention => {
     try {
-      const response = await fetch(`https://s59-useless-inventions-1.onrender.com/api/${id}`, {
+      const response = await fetch(`http://localhost:8088/api/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

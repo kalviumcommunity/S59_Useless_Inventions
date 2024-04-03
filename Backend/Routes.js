@@ -9,9 +9,11 @@ const SECRET = process.env.SECRET
 require('dotenv').config()
 
 const schema = Joi.object({
+    User: Joi.string().required(),
     Invention: Joi.string().required(),
     Founder: Joi.string().required(),
     Founded: Joi.string().required(),
+    Image: Joi.string().required(),
     Description: Joi.string().required(), 
   });
 
@@ -58,6 +60,26 @@ router.get('/',async (req , res) => {
         res.json({error : "Error occured 1"})
     }
 })
+router.get('/users', async (req, res) => {
+    try {
+        const users = await Invention.find({}).distinct('User');
+        res.json(users);
+    } catch (error) {
+        res.status(500).send('An error occurred while fetching user names.');
+    }
+});
+
+router.get('/user/:filter', async (req, res) => {
+    const user = req.params.filter;
+    try {
+        console.log(user)
+        const filteredInventions = await Invention.find({ User: user });
+        res.json(filteredInventions);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching filtered inventions' });
+    }
+});
+
 
 
 router.get('/:id' , async (req, res)=>{
@@ -74,9 +96,10 @@ router.post
 ('/add-Invention', async (req , res)=>{ 
 
     if(!validation(req.body)){
-        return res.status(400).json({"Error":"Invalid data input"})
+        return res.status(400).json({"Error":"validation failed"})
     }
     const newInvention = new Invention({
+        User:req.body.User,
         Invention:req.body.Invention,
         Founder : req.body.Founder,
         Founded : req.body.Founded,
@@ -103,6 +126,8 @@ router.patch('/:id' , async (req,res)=>{
         res.status(500).send('Error: '+ err)
     }
 })
+
+
 router.put('/:id', async (req, res) => {
     try {
         const updatedInvention = await Invention.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -180,6 +205,9 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error: "An error occurred" })
     }
 })
+
+
+
 
 connectDB()
 

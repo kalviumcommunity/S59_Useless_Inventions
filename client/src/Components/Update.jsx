@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 
 function Update({ invention, onUpdate }) {
-  const [editedInvention, setEditedInvention] = useState({
-    Invention: invention.Invention,
-    Founder: invention.Founder,
-    Founded: invention.Founded,
-    Description: invention.Description,
-  });
+  const [editedInvention, setEditedInvention] = useState({ ...invention });
   const [showConfirmation, setShowConfirmation] = useState(false); 
 
   const handleInputChange = event => {
@@ -19,7 +14,7 @@ function Update({ invention, onUpdate }) {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`https://s59-useless-inventions-1.onrender.com/api/${invention._id}`, {
+      const response = await fetch(`http://localhost:8088/api/${invention._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +24,7 @@ function Update({ invention, onUpdate }) {
       if (!response.ok) {
         throw new Error(`Error updating invention: ${response.statusText}`);
       }
-      setShowConfirmation(true); 
+      setShowConfirmation(true);
       onUpdate(editedInvention);
     } catch (error) {
       console.error('Error updating invention:', error);
@@ -38,6 +33,15 @@ function Update({ invention, onUpdate }) {
 
   return (
     <div className="update-form">
+      <label>
+        User Name:
+        <input
+          type="text"
+          name="User"
+          value={editedInvention.User}
+          onChange={handleInputChange}
+        />
+      </label>
       <label>
         Invention Name:
         <input
@@ -77,7 +81,10 @@ function Update({ invention, onUpdate }) {
         Update Invention
       </button>
       {showConfirmation && (
-        <div className="confirmation-message">Invention updated successfully!</div>
+        <div className="confirmation-message">
+          Invention updated successfully!
+          <button onClick={() => setShowConfirmation(false)}>Dismiss</button>
+        </div>
       )}
     </div>
   );

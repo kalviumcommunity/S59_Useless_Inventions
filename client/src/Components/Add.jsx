@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function Add() {
   const [formData, setFormData] = useState({
+    "User": '',
     "Invention": '',
     "Image": '',
     "Founder": '',
@@ -20,7 +21,7 @@ function Add() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://s59-useless-inventions-1.onrender.com/api/add-invention', {
+      const response = await fetch('http://localhost:8088/api/add-invention', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -29,6 +30,7 @@ function Add() {
       });
       if (response.ok) {
         setFormData({
+          "User": '',
           "Invention": '',
           "Image": '',
           "Founder": '',
@@ -37,6 +39,7 @@ function Add() {
         });
         alert('Invention added successfully!');
       } else {
+        console.log(formData)
         alert('Failed to add invention. Please try again later.');
       }
     } catch (error) {
@@ -49,6 +52,9 @@ function Add() {
     <div>
       <h2>Add New Invention</h2>
       <form onSubmit={handleSubmit}>
+      <label htmlFor="user">User:</label><br/>
+      <input type="text" id="user" name="User" value={formData["User"]} onChange={handleChange} required/><br/><br/>
+
         <label htmlFor="invention">Invention:</label><br/>
         <input type="text" id="invention" name="Invention" value={formData["Invention"]} onChange={handleChange} required/><br/><br/>
 
